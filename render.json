@@ -1,0 +1,11 @@
+{
+  "services": [
+    {
+      "src": "server.js",
+      "engine": "node",
+      "env": {
+        "PORT": 3001
+      }
+    }
+  ]
+}
