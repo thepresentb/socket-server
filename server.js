@@ -8,6 +8,10 @@ app.use(cors());
 const httpServer = createServer(app);
 const io = new Server(httpServer);
 
+app.get("/", (req, res) => {
+  res.json("hello");
+});
+
 const listUserOnline = {};
 
 io.on("connection", (socket) => {
