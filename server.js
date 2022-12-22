@@ -9,7 +9,7 @@ const httpServer = createServer(app);
 const io = new Server(httpServer);
 
 app.get("/", (req, res) => {
-  res.json("hello");
+  res.json("hello mn");
 });
 
 const listUserOnline = {};
