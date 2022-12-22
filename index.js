@@ -9,6 +9,7 @@ const httpServer = createServer(app);
 const io = new Server(httpServer);
 
 app.get("/", (req, res) => {
+  console.log("check");
   res.json("hello mn");
 });
 
