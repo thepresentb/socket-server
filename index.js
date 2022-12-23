@@ -1,12 +1,15 @@
 const express = require("express");
-const { createServer } = require("http");
+const http = require("http");
+const socketio = require("socket.io");
 const cors = require("cors");
-const { Server } = require("socket.io");
-
 const app = express();
 app.use(cors());
-const httpServer = createServer(app);
-const io = new Server(httpServer);
+const server = http.createServer(app);
+const io = socketio(server, {
+  cors: {
+    origin: "http://localhost:3000",
+  },
+});
 
 app.get("/", (req, res) => {
   console.log("check");
@@ -62,6 +65,6 @@ io.on("connection", (socket) => {
   });
 });
 
-httpServer.listen(3001, () => {
+server.listen(3001, () => {
   console.log("server running");
 });
